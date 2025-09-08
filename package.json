@@ -12,6 +12,9 @@
     "@grapesjs/studio-sdk": "^1.0.56",
     "@grapesjs/studio-sdk-plugins": "^1.0.28",
     "grapesjs": "^0.22.12",
+    "grapesjs-blocks-basic": "^1.0.2",
+    "grapesjs-plugin-export": "^1.0.12",
+    "grapesjs-plugin-forms": "^2.0.6",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0"
