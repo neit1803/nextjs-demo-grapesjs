@@ -31,6 +31,8 @@ export default function EditorPage() {
     console.log("HTML:", html);
     console.log("CSS:", css);
     console.log("JSON:", json);
+
+    saveTemplate({ html, css, json })
   };
 
   return (
