@@ -21,7 +21,7 @@ export default function EditorPage() {
     // Chỉ init 1 lần khi component mount
     const editor = createStudioEditor({
       root: "#studio-editor",
-      licenseKey: process.env.GRAPESJS_LICENSE_KEY || "Missing GrapesJS Key", // vẫn free nếu bạn dùng open-source
+      licenseKey: process.env.GRAPESJS_LICENSE_KEY || "Missing GrapesJS License Key", // vẫn free nếu bạn dùng open-source
       project: { type: "web" },
       assets: {
         storageType: "self",
