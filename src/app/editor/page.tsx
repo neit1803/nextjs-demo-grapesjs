@@ -30,34 +30,39 @@ export default function EditorPage() {
           for (const file of files) {
             body.append("files", file);
           }
-          const response = await fetch("http://localhost:8080/api/assets", {
-            method: "POST",
-            body,
-          });
-          return await response.json(); // [{ src: "url" }]
+          // const response = await fetch("http://localhost:8080/api/assets", {
+          //   method: "POST",
+          //   body,
+          // });
+          // return await response.json(); // [{ src: "url" }]
+
+          console.log("Uploaded files:", files);
+          return files.map((file) => ({ src: URL.createObjectURL(file) }));
         },
         onDelete: async ({ assets }) => {
-          await fetch("http://localhost:8080/api/assets", {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(assets),
-          });
+          // await fetch("http://localhost:8080/api/assets", {
+          //   method: "DELETE",
+          //   headers: { "Content-Type": "application/json" },
+          //   body: JSON.stringify(assets),
+          // });
+          console.log("Deleted assets:", assets);
         },
       },
       storage: {
         type: "self",
         onSave: async ({ project }) => {
-          await fetch("http://localhost:8080/api/projects", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(project),
-          });
+          // await fetch("http://localhost:8080/api/projects", {
+          //   method: "POST",
+          //   headers: { "Content-Type": "application/json" },
+          //   body: JSON.stringify(project),
+          // });
+          console.log("Project saved:", project);
         },
-        onLoad: async () => {
-          const res = await fetch("http://localhost:8080/api/projects/1"); // ví dụ load template id=1
-          const project = await res.json();
-          return { project };
-        },
+        // onLoad: async () => {
+        //   const res = await fetch("http://localhost:8080/api/projects/1"); // ví dụ load template id=1
+        //   const project = await res.json();
+        //   return { project };
+        // },
         autosaveChanges: 100,
         autosaveIntervalMs: 10000,
       },
